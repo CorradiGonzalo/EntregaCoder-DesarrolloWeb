@@ -1,0 +1,27 @@
+// ==========================================================================
+// main.scss — entry point. Imports only: every actual style rule lives in
+// a partial under abstracts/, base/, layout/, components/ or pages/.
+// ==========================================================================
+
+@use "abstracts/variables";
+@use "abstracts/mixins";
+@use "abstracts/placeholders";
+
+@use "base/reset";
+@use "base/elements";
+@use "base/animations";
+
+@use "layout/layout";
+@use "layout/footer";
+
+@use "components/navbar";
+@use "components/buttons";
+@use "components/modals";
+@use "components/forms";
+@use "components/shared-hero";
+
+@use "pages/home";
+@use "pages/products";
+@use "pages/quality";
+@use "pages/about";
+@use "pages/contact";

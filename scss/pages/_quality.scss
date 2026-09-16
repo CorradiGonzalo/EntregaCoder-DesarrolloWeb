@@ -1,0 +1,399 @@
+// ============================================================
+// Quality guarantee page
+// ============================================================
+
+@use "../abstracts/mixins" as m;
+
+.quality-hero,
+.quality-iso,
+.quality-control,
+.quality-cta {
+  background: #141414;
+  color: #fff;
+}
+
+.quality-hero {
+  padding: 3.5rem 0 2rem;
+}
+
+.quality-hero__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.55fr);
+  gap: 2rem;
+  align-items: center;
+}
+
+.quality-hero__title {
+  margin: 0;
+  font-family: "Kanit", sans-serif;
+  font-size: clamp(3.2rem, 9vw, 6rem);
+  line-height: 0.92;
+  text-transform: uppercase;
+}
+
+.quality-hero__title span {
+  display: block;
+}
+
+.quality-hero__accent {
+  color: #f1a9a5;
+}
+
+.quality-hero__note {
+  padding-left: 1.6rem;
+  border-left: 2px solid #d7ab36;
+  color: rgba(255, 255, 255, 0.78);
+  line-height: 1.8;
+}
+
+.quality-iso {
+  padding: 2rem 0 3rem;
+}
+
+.quality-iso__card {
+  display: grid;
+  grid-template-columns: minmax(10rem, 12rem) minmax(0, 1fr);
+  gap: 2rem;
+  padding: 1.5rem;
+  border-left: 2px solid #f1a9a5;
+  background: #1a1a1a;
+}
+
+.quality-iso__badge {
+  display: grid;
+  place-items: center;
+  min-height: 12rem;
+  background: linear-gradient(135deg, #616161, #d3d3d3 50%, #4e4e4e);
+}
+
+.quality-iso__seal {
+  display: grid;
+  place-items: center;
+  width: 6.5rem;
+  height: 6.5rem;
+  border-radius: 50%;
+  border: 4px double rgba(255, 255, 255, 0.8);
+  color: #ffffff;
+  font-family: "Kanit", sans-serif;
+  font-size: 1rem;
+  line-height: 1.1;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.quality-iso__content h2 {
+  margin: 0 0 0.8rem;
+  font-family: "Kanit", sans-serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 0.96;
+}
+
+.quality-iso__content p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.76);
+  line-height: 1.8;
+}
+
+.quality-iso__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 1.4rem;
+}
+
+.quality-iso__meta span {
+  color: #d7ab36;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.quality-control {
+  padding: 2rem 0 4rem;
+}
+
+.quality-control__heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.quality-control__heading h2 {
+  margin: 0;
+  font-family: "Kanit", sans-serif;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  line-height: 0.95;
+}
+
+.quality-control__heading p {
+  margin: 0.5rem 0 0;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.quality-control__mark {
+  color: rgba(241, 169, 165, 0.32);
+  font-family: "Kanit", sans-serif;
+  font-size: clamp(2rem, 5vw, 4rem);
+  line-height: 1;
+}
+
+.quality-control__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(21rem, 0.85fr);
+  gap: 1rem;
+}
+
+.quality-control__hero-card {
+  position: relative;
+  min-height: 25rem;
+  overflow: hidden;
+  background: #1b1b1b;
+}
+
+.quality-control__hero-image {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.42)),
+    url("../assets/img/calidad/calidad.png?v=20260504-1223") center/cover no-repeat;
+  filter: grayscale(1);
+}
+
+.quality-control__hero-content {
+  position: absolute;
+  left: 1.5rem;
+  bottom: 1.5rem;
+  max-width: 20rem;
+}
+
+.quality-control__hero-content h3 {
+  margin: 0 0 0.7rem;
+  color: #fff;
+  font-family: "Kanit", sans-serif;
+  font-size: clamp(1.8rem, 4vw, 2.9rem);
+  line-height: 0.95;
+}
+
+.quality-control__hero-content p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.quality-control__stack {
+  display: grid;
+  gap: 1rem;
+}
+
+.quality-control__row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(13.75rem, 1fr));
+  gap: 1rem;
+}
+
+.quality-panel {
+  min-height: 12rem;
+  padding: 1.4rem;
+  background: #232323;
+}
+
+.quality-panel--featured {
+  border-top: 1px solid rgba(241, 169, 165, 0.24);
+  border-left: 2px solid #f1a9a5;
+}
+
+.quality-panel__eyebrow {
+  margin: 0 0 0.7rem;
+  color: #d7ab36;
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.quality-panel h3 {
+  margin: 0 0 0.75rem;
+  color: #fff;
+  font-family: "Kanit", sans-serif;
+  font-size: 1.5rem;
+  line-height: 1.08;
+  text-wrap: balance;
+}
+
+.quality-panel p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.74);
+  line-height: 1.55;
+}
+
+.quality-panel__footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(241, 169, 165, 0.2);
+}
+
+.quality-panel__footer span {
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.quality-panel__icon {
+  display: inline-block;
+  margin-bottom: 1rem;
+  color: #f1a9a5;
+  font-family: "Kanit", sans-serif;
+}
+
+.quality-commitment {
+  padding: 4rem 0;
+  background: #f2efec;
+}
+
+.quality-commitment__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(20rem, 0.95fr);
+  gap: 2rem;
+  align-items: center;
+}
+
+.quality-commitment__copy h2 {
+  margin: 0 0 1.5rem;
+  font-family: "Kanit", sans-serif;
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  line-height: 0.95;
+}
+
+.quality-commitment__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 1.4rem;
+}
+
+.quality-commitment__list li {
+  display: grid;
+  grid-template-columns: 2.2rem minmax(0, 1fr);
+  gap: 1rem;
+}
+
+.quality-commitment__list span {
+  color: #f1a9a5;
+  font-family: "Kanit", sans-serif;
+  font-size: 1.6rem;
+}
+
+.quality-commitment__list h3 {
+  margin: 0 0 0.35rem;
+  font-size: 1rem;
+}
+
+.quality-commitment__list p {
+  margin: 0;
+  color: var(--color-text-muted);
+  line-height: 1.7;
+}
+
+.quality-commitment__image-wrap {
+  position: relative;
+  padding-top: 1.2rem;
+  padding-left: 1.2rem;
+}
+
+.quality-commitment__frame {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2.6rem;
+  height: 2.6rem;
+  border-top: 2px solid #f1a9a5;
+  border-left: 2px solid #f1a9a5;
+}
+
+.quality-commitment__image {
+  min-height: 21rem;
+  background:
+    url("https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1000&q=80") center/cover no-repeat;
+  filter: grayscale(1);
+  box-shadow: var(--shadow-soft);
+}
+
+.quality-cta {
+  padding: 4rem 0;
+}
+
+.quality-cta__box {
+  display: grid;
+  justify-items: center;
+  gap: 1rem;
+  padding: 3.5rem 1.5rem;
+  text-align: center;
+  background: #343434;
+  border-bottom: 3px solid #d7ab36;
+}
+
+.quality-cta__box h2 {
+  margin: 0;
+  max-width: 12ch;
+  font-family: "Kanit", sans-serif;
+  font-size: clamp(2.1rem, 5vw, 3.6rem);
+  line-height: 0.95;
+}
+
+.quality-cta__box p {
+  max-width: 38rem;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.8;
+}
+
+.quality-footer {
+  padding: 3rem 0 2rem;
+  background: #111111;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.quality-footer__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr) minmax(14rem, 0.9fr);
+  gap: 2rem;
+}
+
+.quality-footer__brand,
+.quality-footer__title {
+  margin: 0 0 1rem;
+  color: #d7ab36;
+  font-size: 0.84rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.quality-footer__links {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.quality-footer__links a,
+.quality-footer p {
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.7;
+}
+
+.quality-footer__bottom {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+}
+
+@include m.respond("mobile-down") {
+  .quality-iso__card {
+      grid-template-columns: 1fr;
+    }
+}

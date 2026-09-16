@@ -1,0 +1,73 @@
+// ==========================================================================
+// Buttons
+// ==========================================================================
+
+@use "../abstracts/mixins" as m;
+@use "../abstracts/variables" as v;
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3rem;
+  padding: 0.95rem 1.6rem;
+  border: 1px solid transparent;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  transition: transform var(--transition), background-color var(--transition),
+    border-color var(--transition), color var(--transition);
+
+  &:hover,
+  &:focus-visible {
+    transform: translateY(-2px);
+  }
+
+  &--primary {
+    @include m.button-variant(var(--color-accent));
+
+    &:hover,
+    &:focus-visible {
+      background: #dc1b1b;
+    }
+  }
+
+  &--ghost {
+    @include m.button-variant(rgba(255, 255, 255, 0.02), var(--color-text-inverse), rgba(255, 255, 255, 0.2));
+
+    &:hover,
+    &:focus-visible {
+      border-color: rgba(255, 255, 255, 0.45);
+      background: rgba(255, 255, 255, 0.08);
+    }
+  }
+
+  &--light {
+    @include m.button-variant(#fff, var(--color-dark));
+  }
+
+  &--small {
+    min-height: 2.6rem;
+    padding-inline: 1.2rem;
+  }
+
+  &--block {
+    width: 100%;
+  }
+}
+
+.hero__actions .button {
+  min-width: 13.5rem;
+  min-height: 0;
+  height: 2.15rem;
+  padding: 0 1.45rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.13em;
+}
+
+@include m.respond("mobile-down") {
+  .products-band__cta .button {
+    width: 100%;
+  }
+}

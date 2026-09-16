@@ -1,0 +1,49 @@
+// ==========================================================================
+// Variables — design tokens for Antares SRL
+// Every color, spacing and timing value used across the site lives here.
+// Change a value once and it propagates through every partial that
+// consumes it (directly as a Sass variable, or via the CSS custom
+// properties generated in base/_reset.scss).
+// ==========================================================================
+
+// -- Color palette ---------------------------------------------------------
+$color-bg: #f2efec;
+$color-surface: #ffffff;
+$color-surface-alt: #e8e1db;
+$color-dark: #101010;
+$color-dark-soft: #292929;
+$color-text: #1b1b1b;
+$color-text-muted: #6f6a65;
+$color-text-inverse: #f5f0ea;
+$color-line: rgba(255, 255, 255, 0.12);
+$color-line-dark: rgba(16, 16, 16, 0.08);
+$color-accent: #c41212;
+$color-accent-deep: #7d0f0f;
+$color-gold: #d8a63b;
+
+// -- Layout ------------------------------------------------------------
+$container-width: min(1120px, calc(100% - 2rem));
+$container-width-mobile: min(100% - 1.25rem, 1120px);
+$header-height: 7.8rem;
+
+// -- Radii & shadow ---------------------------------------------------------
+$radius-sm: 0.25rem;
+$radius-md: 0.5rem;
+$radius-lg: 1rem;
+$shadow-soft: 0 1.25rem 3rem rgba(8, 8, 8, 0.12);
+
+// -- Motion ------------------------------------------------------------
+$transition-speed: 200ms;
+$transition-easing: ease;
+$transition: $transition-speed $transition-easing;
+
+// -- Breakpoints (consumed by the respond() mixin) --------------------
+$breakpoints: (
+  "mobile-down": "(max-width: 640px)",
+  "tablet-down": "(max-width: 900px)",
+  "desktop-up": "(min-width: 901px)",
+);
+
+// -- Typography ---------------------------------------------------------
+$font-body: "Barlow", sans-serif;
+$font-display: "Kanit", sans-serif;

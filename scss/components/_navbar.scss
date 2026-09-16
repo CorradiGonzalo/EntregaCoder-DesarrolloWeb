@@ -1,0 +1,261 @@
+// ==========================================================================
+// Navbar — Bootstrap navbar/toggler/collapse, restyled to keep the
+// Antares identity. Bootstrap only supplies the collapse *behaviour*
+// (data-bs-toggle / data-bs-target on the button below); every visual
+// rule here overrides Bootstrap's defaults.
+// ==========================================================================
+
+@use "../abstracts/mixins" as m;
+@use "../abstracts/placeholders";
+
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: rgba(10, 10, 10, 0.92);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+
+  .navbar {
+    @include m.flex(row, center, center, 1rem);
+    min-height: var(--header-height);
+
+    @include m.respond("desktop-up") {
+      position: relative;
+    }
+
+    @include m.respond("tablet-down") {
+      justify-content: space-between;
+    }
+  }
+
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    font-family: "Kanit", sans-serif;
+    font-size: 1rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    color: #fff;
+
+    img {
+      display: block;
+      height: 3rem;
+      width: auto;
+    }
+
+    @include m.respond("desktop-up") {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translate(-0.95rem, -50%);
+    }
+  }
+
+  .brand--footer {
+    display: inline-block;
+    margin-bottom: 0.55rem;
+    transform: translateY(-0.2rem);
+
+    img {
+      height: 3.36rem;
+    }
+  }
+}
+
+body[data-page="home"] .site-header .navbar {
+  justify-content: center;
+
+  @include m.respond("tablet-down") {
+    justify-content: space-between;
+  }
+}
+
+// -- Desktop link list + language switcher --------------------------------
+.nav-desktop {
+  @include m.flex(row, flex-start, center, 1.5rem);
+
+  @include m.respond("desktop-up") {
+    justify-content: center;
+    gap: 1.5rem;
+  }
+
+  @include m.respond("tablet-down") {
+    display: none;
+  }
+}
+
+.nav-links,
+.mobile-menu__links {
+  @extend %list-reset;
+}
+
+.nav-links {
+  @include m.flex(row, flex-start, center, 1.6rem);
+}
+
+.nav-links a,
+.mobile-menu__links a {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.78);
+  @include m.link-underline;
+
+  &:hover,
+  &:focus-visible {
+    color: #fff;
+
+    &::after {
+      transform: scaleX(1);
+    }
+  }
+}
+
+.nav-tools {
+  @include m.flex(row, flex-start, center, 1rem);
+
+  @include m.respond("desktop-up") {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    margin-right: 0;
+    transform: translate(0.8rem, -50%);
+  }
+}
+
+.language-switcher {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.lang-btn {
+  @extend %icon-circle-button;
+  width: 2.35rem;
+  height: 2.35rem;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: transparent;
+  color: rgba(255, 255, 255, 0.8);
+
+  &:hover,
+  &:focus-visible,
+  &.is-active {
+    border-color: rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.08);
+    color: #fff;
+  }
+}
+
+.flag {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.45rem;
+  height: 1.45rem;
+  border-radius: 999px;
+  overflow: hidden;
+  font-size: 0.48rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-indent: -999px;
+
+  &::before {
+    content: "";
+    @include m.fill-absolute;
+  }
+}
+
+[data-lang="es"] .flag::before {
+  background: linear-gradient(to bottom, #79c7ff 0 33.33%, #ffffff 33.33% 66.66%, #79c7ff 66.66% 100%);
+}
+
+[data-lang="en"] .flag::before {
+  background: linear-gradient(
+    to bottom,
+    #b22234 0 14.28%,
+    #ffffff 14.28% 28.56%,
+    #b22234 28.56% 42.84%,
+    #ffffff 42.84% 57.12%,
+    #b22234 57.12% 71.4%,
+    #ffffff 71.4% 85.68%,
+    #b22234 85.68% 100%
+  );
+}
+
+[data-lang="en"] .flag::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 45%;
+  height: 55%;
+  background: #3c3b6e;
+}
+
+// -- Bootstrap toggler + collapse, restyled --------------------------------
+// `.menu-toggle` carries `.navbar-toggler` + `data-bs-toggle="collapse"`
+// in the markup; Bootstrap's JS drives `aria-expanded` and the show/hide
+// of #mobile-menu (`.collapse`) — we only restyle both here.
+.navbar-toggler.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 0.32rem;
+  padding: 0.5rem;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  line-height: 1;
+
+  &:focus {
+    box-shadow: none;
+  }
+
+  span {
+    width: 1.6rem;
+    height: 2px;
+    background: #fff;
+    transition: transform var(--transition), opacity var(--transition);
+  }
+
+  &[aria-expanded="true"] span:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+  }
+
+  &[aria-expanded="true"] span:nth-child(2) {
+    opacity: 0;
+  }
+
+  &[aria-expanded="true"] span:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+  }
+
+  @include m.respond("tablet-down") {
+    display: inline-flex;
+  }
+}
+
+.mobile-menu.collapse {
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(12, 12, 12, 0.98);
+}
+
+.mobile-menu__inner {
+  padding: 1.5rem 0 2rem;
+}
+
+.mobile-menu__links {
+  display: grid;
+  gap: 1.2rem;
+}
+
+.mobile-menu__footer {
+  display: grid;
+  gap: 1rem;
+  margin-top: 2rem;
+}

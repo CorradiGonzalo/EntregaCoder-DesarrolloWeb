@@ -1,0 +1,915 @@
+// ============================================================
+// Products & services page
+// ============================================================
+
+@use "../abstracts/mixins" as m;
+
+.products-hero,
+.products-section {
+  background: #141414;
+  color: #fff;
+}
+
+.products-hero {
+  padding: 3rem 0 2.5rem;
+}
+
+.products-hero__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(12rem, 0.35fr);
+  gap: 2rem;
+  align-items: end;
+}
+
+.products-hero__title {
+  margin: 0;
+  font-family: "Kanit", sans-serif;
+  font-size: clamp(3.5rem, 10vw, 6.8rem);
+  line-height: 0.9;
+  text-transform: uppercase;
+}
+
+.products-hero__title span {
+  display: block;
+}
+
+.products-hero__accent {
+  color: var(--color-accent);
+}
+
+.products-hero__lead {
+  max-width: 42rem;
+  margin: 1.5rem 0 0;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+.products-hero__cert {
+  padding-left: 1.25rem;
+  border-left: 2px solid #d7ab36;
+  font-size: 0.78rem;
+  line-height: 1.7;
+  text-transform: uppercase;
+}
+
+.products-hero__cert p {
+  margin: 0;
+}
+
+.products-section {
+  padding: 2.2rem 0 4rem;
+}
+
+.products-section--oilgas {
+  padding-top: 1rem;
+  padding-bottom: 5rem;
+}
+
+.products-section--services {
+  padding-top: 0;
+  padding-bottom: 4.5rem;
+}
+
+.products-heading {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin-bottom: 2rem;
+}
+
+.products-heading__line {
+  width: 1.9rem;
+  height: 0.12rem;
+  background: #d7ab36;
+}
+
+.products-heading h2 {
+  margin: 0;
+  font-family: "Kanit", sans-serif;
+  font-size: clamp(1.9rem, 4vw, 3rem);
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.products-cards {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.2rem;
+}
+
+.tooling-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  align-items: stretch;
+}
+
+.sintered-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  align-items: stretch;
+}
+
+.products-cards--tooling {
+  order: 2;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-auto-rows: auto;
+}
+
+.products-cards--other-products {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.products-cards--tooling .tech-card {
+  min-height: 0;
+  aspect-ratio: 1 / 1;
+}
+
+.tooling-hero-card {
+  order: 1;
+  position: relative;
+  min-height: 28rem;
+  overflow: hidden;
+  background: #1c1c1c;
+  box-shadow: 0 1.4rem 3rem rgba(0, 0, 0, 0.22);
+}
+
+.tooling-hero-card__image {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(20, 20, 20, 0.06), rgba(20, 20, 20, 0.38)),
+    url("../assets/img/catalogo/01Herramental.jpeg") center/cover no-repeat;
+  opacity: 0.96;
+  transform: scale(1.01);
+}
+
+.tooling-hero-card__image--siderurgia {
+  background:
+    linear-gradient(90deg, rgba(20, 20, 20, 0.04), rgba(20, 20, 20, 0.38)),
+    url("../assets/img/siderurgia-hero.png") center/cover no-repeat;
+}
+
+.sintered-hero-card {
+  position: relative;
+  min-height: clamp(30rem, 46vw, 42rem);
+  overflow: hidden;
+  background: #dedede;
+  box-shadow: 0 1.4rem 3rem rgba(0, 0, 0, 0.22);
+}
+
+.sintered-hero-card__image {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.02), rgba(0, 0, 0, 0.36)),
+    url("../assets/img/catalogo/00/MDSinterizado.jpg") center/cover no-repeat;
+  opacity: 0.98;
+}
+
+.sintered-hero-card__content {
+  position: absolute;
+  left: 2rem;
+  bottom: 2rem;
+  max-width: 28rem;
+}
+
+.sintered-hero-card__content h3 {
+  margin: 0;
+  padding-left: 1rem;
+  border-left: 2px solid #d7ab36;
+  color: #fff;
+  font-family: "Kanit", sans-serif;
+  font-size: clamp(2rem, 5vw, 3rem);
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+
+.tech-card {
+  min-height: 18rem;
+  padding: 1.5rem;
+  background: #2b2b2b;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom-color: rgba(0, 0, 0, 0.28);
+  box-shadow: 0 1rem 2.5rem rgba(0, 0, 0, 0.16);
+}
+
+.tech-card--trigger {
+  width: 100%;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.tech-card--trigger:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 1.35rem 2.8rem rgba(0, 0, 0, 0.22);
+}
+
+.tech-card--mechas-bg {
+  background:
+    linear-gradient(180deg, rgba(43, 43, 43, 0.32), rgba(28, 28, 28, 0.44)),
+    url("../assets/img/catalogo/brocas/BrocaEscalonadaR.png?v=20260716") center 58%/cover no-repeat,
+    #2b2b2b;
+}
+
+.tech-card--fresas-bg {
+  background:
+    linear-gradient(180deg, rgba(43, 43, 43, 0.32), rgba(28, 28, 28, 0.44)),
+    url("../assets/img/catalogo/fresas/FresaIntegral.png?v=20260716") center 58%/cover no-repeat,
+    #2b2b2b;
+}
+
+.tech-card--escariadores-bg {
+  background:
+    linear-gradient(180deg, rgba(43, 43, 43, 0.32), rgba(28, 28, 28, 0.48)),
+    url("../assets/img/catalogo/escariadores/Escariador.png?v=20260716") center 58%/cover no-repeat,
+    #2b2b2b;
+}
+
+.tech-card--insertos-bg {
+  background:
+    linear-gradient(180deg, rgba(43, 43, 43, 0.32), rgba(28, 28, 28, 0.48)),
+    url("../assets/img/catalogo/insertos/Insertos.png?v=20260716") center 58%/cover no-repeat,
+    #2b2b2b;
+}
+
+.tech-card--siderurgia-rodillos {
+  background:
+    linear-gradient(180deg, rgba(43, 43, 43, 0.32), rgba(28, 28, 28, 0.48)),
+    url("../assets/img/catalogo/varios/enderedadoraDeAlmbre.jpeg?v=20260716-2") center/contain no-repeat,
+    #8f8f8f;
+}
+
+.tech-card--siderurgia-cuchilla {
+  background:
+    linear-gradient(180deg, rgba(43, 43, 43, 0.32), rgba(28, 28, 28, 0.48)),
+    url("../assets/img/catalogo/varios/rueda.png?v=20260716-2") center/contain no-repeat,
+    #b8b8bc;
+}
+
+.tech-card--siderurgia-sellos {
+  background:
+    linear-gradient(180deg, rgba(43, 43, 43, 0.32), rgba(28, 28, 28, 0.48)),
+    url("../assets/img/catalogo/varios/sellos.png?v=20260716-2") center/cover no-repeat,
+    #8f8f8f;
+}
+
+.tech-card--siderurgia-anillos {
+  background: #8f8f8f;
+}
+
+.tech-card--siderurgia-anillos .tech-card__top,
+.tech-card--siderurgia-anillos h3,
+.tech-card--siderurgia-anillos .tech-card__tag {
+  display: none;
+}
+
+.tech-card--sintered-1,
+.tech-card--sintered-2,
+.tech-card--sintered-3,
+.tech-card--sintered-4 {
+  background:
+    linear-gradient(180deg, rgba(43, 43, 43, 0.22), rgba(28, 28, 28, 0.44)),
+    #3f3f3f;
+  border: 1px dashed rgba(255, 255, 255, 0.12);
+  box-shadow: none;
+}
+
+.tech-card--sintered-1 {
+  background:
+    linear-gradient(180deg, rgba(43, 43, 43, 0.18), rgba(28, 28, 28, 0.4)),
+    url("../assets/img/catalogo/00/barras.jpg?v=20260716") center/cover no-repeat,
+    #d8d8d8;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 1rem 2.5rem rgba(0, 0, 0, 0.16);
+}
+
+.tech-card--sintered-2 {
+  background:
+    linear-gradient(180deg, rgba(43, 43, 43, 0.18), rgba(28, 28, 28, 0.4)),
+    url("../assets/img/catalogo/00/insertosBruto.png?v=20260716") center/cover no-repeat,
+    #d8d8d8;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 1rem 2.5rem rgba(0, 0, 0, 0.16);
+}
+
+.tech-card--sintered-3 {
+  background:
+    linear-gradient(180deg, rgba(43, 43, 43, 0.18), rgba(28, 28, 28, 0.4)),
+    url("../assets/img/catalogo/00/bujesBruto.jpg?v=20260716") center/cover no-repeat,
+    #d8d8d8;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 1rem 2.5rem rgba(0, 0, 0, 0.16);
+}
+
+.tech-card--placeholder {
+  background:
+    linear-gradient(180deg, rgba(43, 43, 43, 0.2), rgba(28, 28, 28, 0.34)),
+    #3f3f3f;
+  border: 1px dashed rgba(255, 255, 255, 0.12);
+  box-shadow: none;
+}
+
+.tech-card__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2.2rem;
+}
+
+.tech-card__icon {
+  color: #d7ab36;
+  font-family: "Kanit", sans-serif;
+  font-size: 1.4rem;
+  letter-spacing: -0.08em;
+}
+
+.tech-card__code {
+  color: rgba(255, 255, 255, 0.22);
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.tech-card h3 {
+  margin: 0 0 0.85rem;
+  color: #fff;
+  font-size: 1.55rem;
+  font-family: "Kanit", sans-serif;
+  line-height: 1;
+}
+
+.tech-card__tag {
+  display: inline-block;
+  margin-top: 2rem;
+  color: #d7ab36;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.tech-card p {
+  margin: 0 0 1.8rem;
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.7;
+}
+
+.tech-card__specs {
+  margin: 0;
+  display: grid;
+  gap: 0.65rem;
+}
+
+.tech-card__specs div {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+}
+
+.tech-card__specs dt {
+  color: rgba(255, 255, 255, 0.45);
+  letter-spacing: 0.12em;
+}
+
+.tech-card__specs dd {
+  margin: 0;
+  color: #fff;
+}
+
+.oilgas-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.products-section--oilgas .oilgas-hero-card {
+  order: 1;
+}
+
+.products-section--oilgas .oilgas-stack {
+  order: 2;
+}
+
+.oilgas-hero-card {
+  position: relative;
+  min-height: clamp(30rem, 46vw, 42rem);
+  overflow: hidden;
+  background: #1c1c1c;
+}
+
+.oilgas-hero-card__image {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.42)),
+    url("../assets/img/oil&gas.png") center/cover no-repeat;
+  opacity: 0.96;
+}
+
+.oilgas-hero-card__content {
+  position: absolute;
+  left: 2rem;
+  bottom: 2rem;
+  max-width: 22rem;
+}
+
+.oilgas-hero-card__content h3 {
+  margin: 0 0 1rem;
+  padding-left: 1rem;
+  border-left: 2px solid #d7ab36;
+  font-family: "Kanit", sans-serif;
+  font-size: clamp(2rem, 5vw, 3rem);
+  line-height: 0.9;
+  text-transform: uppercase;
+}
+
+.oilgas-hero-card__content p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.7;
+}
+
+.oilgas-stack {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.2rem;
+}
+
+.oilgas-stack__row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.oilgas-info {
+  min-height: 0;
+  aspect-ratio: 1 / 1;
+  padding: 1.5rem;
+  background: #2b2b2b;
+}
+
+.oilgas-info--trigger {
+  width: 100%;
+  border: none;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+
+.oilgas-info--trigger:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 1rem 2.6rem rgba(0, 0, 0, 0.24);
+}
+
+.oilgas-info--featured {
+  background: #181818;
+  border-left: 3px solid #f3ada9;
+}
+
+.oilgas-info--gold {
+  background: #2e2916;
+  border: 1px solid rgba(215, 171, 54, 0.24);
+}
+
+.oilgas-info--womoct {
+  background:
+    linear-gradient(180deg, rgba(20, 20, 20, 0.25), rgba(20, 20, 20, 0.5)),
+    url("../assets/img/catalogo/02/orificiosCalibrados.png?v=20260716") center/cover no-repeat,
+    #b8b8bc;
+}
+
+.oilgas-info--spm {
+  background:
+    linear-gradient(180deg, rgba(20, 20, 20, 0.25), rgba(20, 20, 20, 0.5)),
+    url("../assets/img/catalogo/02/Pistones.png?v=20260716") center/cover no-repeat,
+    #b8b8bc;
+}
+
+.oilgas-info--exclusa {
+  background:
+    linear-gradient(180deg, rgba(20, 20, 20, 0.12), rgba(20, 20, 20, 0.3)),
+    url("../assets/img/catalogo/valvulas/exclusa.png?v=20260716") center/contain no-repeat,
+    #a4a4a8;
+}
+
+.oilgas-info h3 {
+  margin: 0 0 0.8rem;
+  font-family: "Kanit", sans-serif;
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.oilgas-info p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.7;
+}
+
+.oilgas-info__tag {
+  display: inline-block;
+  margin-top: 1.1rem;
+  color: #d7ab36;
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.oilgas-info__mini-icon {
+  display: inline-block;
+  margin-bottom: 1.1rem;
+  color: #d7ab36;
+  font-family: "Kanit", sans-serif;
+  font-size: 1.4rem;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.2rem;
+}
+
+.service-card {
+  min-height: 14rem;
+  padding: 1.5rem;
+  background: #2b2b2b;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 1rem 2.5rem rgba(0, 0, 0, 0.16);
+}
+
+.service-card--intro {
+  grid-column: 1 / -1;
+  background: linear-gradient(135deg, #1b1b1b, #121212);
+  border-left: 3px solid #d7ab36;
+}
+
+.service-card--reafilado {
+  background:
+    linear-gradient(180deg, rgba(14, 14, 14, 0.22), rgba(14, 14, 14, 0.46)),
+    url("../assets/img/servicios/reafilado.jpeg") center/cover no-repeat,
+    #2b2b2b;
+}
+
+.service-card--cph {
+  background:
+    linear-gradient(180deg, rgba(14, 14, 14, 0.22), rgba(14, 14, 14, 0.46)),
+    url("../assets/img/servicios/cph.jpeg") center/cover no-repeat,
+    #2b2b2b;
+}
+
+.service-card--asistencia {
+  background:
+    linear-gradient(180deg, rgba(14, 14, 14, 0.22), rgba(14, 14, 14, 0.46)),
+    url("../assets/img/servicios/asiatencia.png") center/cover no-repeat,
+    #2b2b2b;
+}
+
+.service-card__eyebrow {
+  display: inline-block;
+  margin-bottom: 1rem;
+  color: #d7ab36;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.service-card__icon {
+  display: inline-block;
+  margin-bottom: 1.4rem;
+  color: #d7ab36;
+  font-family: "Kanit", sans-serif;
+  font-size: 1.4rem;
+  letter-spacing: -0.08em;
+}
+
+.service-card h3 {
+  margin: 0 0 0.85rem;
+  color: #fff;
+  font-family: "Kanit", sans-serif;
+  font-size: 1.45rem;
+  line-height: 1.05;
+  overflow-wrap: anywhere;
+}
+
+.service-card p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.7;
+}
+
+.products-band {
+  padding: 2rem 0 3.5rem;
+  background: #141414;
+}
+
+.products-band__content {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(18rem, 20rem);
+  gap: 2rem;
+  align-items: center;
+  padding: 2.5rem;
+  background: linear-gradient(135deg, #b60505, #cd0d0d);
+  color: #fff;
+}
+
+.products-band h2 {
+  margin: 0 0 0.8rem;
+  max-width: 12ch;
+  font-family: "Kanit", sans-serif;
+  font-size: clamp(2rem, 5vw, 3.8rem);
+  line-height: 0.94;
+}
+
+.products-band p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.84);
+  font-style: italic;
+}
+
+.products-band__cta {
+  display: grid;
+  gap: 0.8rem;
+  justify-items: start;
+}
+
+.products-band__cta span {
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.products-footer {
+  padding: 3.5rem 0 2.5rem;
+  background: #111111;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.products-footer__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.95fr) minmax(14rem, 0.95fr);
+  gap: 2rem;
+}
+
+.products-footer__brand,
+.products-footer__title {
+  margin: 0 0 1rem;
+  color: #d7ab36;
+  font-size: 0.9rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.products-footer__links {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.products-footer__links a,
+.products-footer p {
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.7;
+}
+
+.products-footer__copy {
+  margin-top: 1.5rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+}
+
+.workflow-map {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 1.25rem;
+  align-items: center;
+}
+
+.workflow-node {
+  position: relative;
+  min-height: 11rem;
+  padding: 1.4rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-lg);
+  background: linear-gradient(180deg, rgba(41, 41, 41, 0.95), rgba(18, 18, 18, 0.95));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.workflow-node--success {
+  border-color: rgba(32, 194, 120, 0.35);
+}
+
+.workflow-node--accent {
+  border-color: rgba(212, 18, 18, 0.4);
+}
+
+.workflow-node--branch {
+  min-height: 10rem;
+}
+
+.workflow-node--highlight {
+  background: linear-gradient(180deg, rgba(24, 24, 24, 0.98), rgba(9, 9, 9, 0.98));
+  border-color: rgba(212, 18, 18, 0.45);
+}
+
+.workflow-node__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 3.2rem;
+  height: 2rem;
+  margin-bottom: 1.5rem;
+  padding: 0 0.7rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.workflow-node h3 {
+  margin: 0 0 0.65rem;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.workflow-node p {
+  margin: 0;
+  color: rgba(245, 240, 234, 0.62);
+  line-height: 1.65;
+}
+
+.workflow-link {
+  position: relative;
+  display: block;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.05));
+}
+
+.workflow-link::after {
+  content: "";
+  position: absolute;
+  right: -0.05rem;
+  top: 50%;
+  width: 0.6rem;
+  height: 0.6rem;
+  border-top: 2px solid rgba(255, 255, 255, 0.32);
+  border-right: 2px solid rgba(255, 255, 255, 0.32);
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.workflow-branch {
+  grid-column: 5 / span 3;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+  position: relative;
+}
+
+.workflow-branch__line {
+  position: absolute;
+  top: -1.35rem;
+  left: 25%;
+  right: 25%;
+  height: 1.35rem;
+  border-top: 2px solid rgba(255, 255, 255, 0.18);
+  border-left: 2px solid rgba(255, 255, 255, 0.18);
+  border-right: 2px solid rgba(255, 255, 255, 0.18);
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
+
+@include m.respond("tablet-down") {
+  .products-section--oilgas .oilgas-hero-card,
+    .products-section--oilgas .oilgas-stack {
+      order: initial;
+    }
+
+  .products-cards--tooling .tech-card {
+      aspect-ratio: auto;
+      min-height: 12.8rem;
+      background-color: #aeb0b5;
+      background-position: center, center 54%;
+      background-repeat: no-repeat, no-repeat;
+      background-size: auto, auto 132%;
+    }
+
+  .workflow-map {
+      grid-template-columns: 1fr;
+    }
+
+  .workflow-link {
+      width: 2px;
+      height: 2rem;
+      margin: 0 auto;
+    }
+
+  .workflow-link::after {
+      top: auto;
+      right: 50%;
+      bottom: -0.05rem;
+      transform: translateX(50%) rotate(135deg);
+    }
+
+  .workflow-branch {
+      grid-column: auto;
+      grid-template-columns: 1fr;
+      margin-top: 0;
+    }
+
+  .workflow-branch__line {
+      display: none;
+    }
+
+  .tooling-hero-card {
+      min-height: 22rem;
+    }
+
+  .products-heading {
+      align-items: flex-start;
+    }
+
+  .products-heading h2 {
+      min-width: 0;
+    }
+}
+
+@include m.respond("mobile-down") {
+  .products-band__content {
+      padding: 2rem 1.5rem;
+    }
+
+  .products-hero {
+      padding: 2.2rem 0 2rem;
+    }
+
+  .products-hero__lead {
+      font-size: 1rem;
+      line-height: 1.65;
+    }
+
+  .products-hero__cert {
+      margin-top: 0.5rem;
+      padding-left: 1rem;
+      font-size: 0.72rem;
+    }
+
+  .products-heading {
+      gap: 0.7rem;
+      margin-bottom: 1.4rem;
+    }
+
+  .products-heading h2 {
+      font-size: clamp(1.45rem, 8vw, 2rem);
+      line-height: 1.08;
+    }
+
+  .tech-card {
+      min-height: 15.5rem;
+      padding: 1.25rem;
+    }
+
+  .tech-card__top {
+      margin-bottom: 1.5rem;
+    }
+
+  .tech-card h3 {
+      font-size: clamp(1.25rem, 7vw, 1.55rem);
+    }
+
+  .tech-card__tag {
+      margin-top: 1.5rem;
+      font-size: 0.66rem;
+      letter-spacing: 0.12em;
+    }
+
+  .oilgas-hero-card__content {
+      left: 1.25rem;
+      right: 1.25rem;
+      bottom: 1.25rem;
+      max-width: none;
+    }
+
+  .oilgas-info,
+    .service-card {
+      padding: 1.25rem;
+    }
+
+  .products-band h2 {
+      font-size: clamp(1.7rem, 8vw, 2.4rem);
+    }
+
+  .products-band__cta {
+      justify-items: stretch;
+    }
+}

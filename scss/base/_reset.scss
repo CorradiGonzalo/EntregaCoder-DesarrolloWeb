@@ -1,0 +1,77 @@
+// ==========================================================================
+// Reset — CSS custom properties (generated from Sass variables) + normalize
+// ==========================================================================
+
+@use "../abstracts/variables" as v;
+@use "../abstracts/mixins" as m;
+
+:root {
+  --color-bg: #{v.$color-bg};
+  --color-surface: #{v.$color-surface};
+  --color-surface-alt: #{v.$color-surface-alt};
+  --color-dark: #{v.$color-dark};
+  --color-dark-soft: #{v.$color-dark-soft};
+  --color-text: #{v.$color-text};
+  --color-text-muted: #{v.$color-text-muted};
+  --color-text-inverse: #{v.$color-text-inverse};
+  --color-line: #{v.$color-line};
+  --color-line-dark: #{v.$color-line-dark};
+  --color-accent: #{v.$color-accent};
+  --color-accent-deep: #{v.$color-accent-deep};
+  --color-gold: #{v.$color-gold};
+  --container: #{v.$container-width};
+  --header-height: #{v.$header-height};
+  --radius-sm: #{v.$radius-sm};
+  --radius-md: #{v.$radius-md};
+  --radius-lg: #{v.$radius-lg};
+  --shadow-soft: #{v.$shadow-soft};
+  --transition: #{v.$transition};
+}
+
+@include m.respond("mobile-down") {
+  :root {
+    --container: #{v.$container-width-mobile};
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  min-width: 0;
+  overflow-x: hidden;
+  font-family: v.$font-body;
+  background: var(--color-bg);
+  color: var(--color-text);
+  padding-top: var(--header-height);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}

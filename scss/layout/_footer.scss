@@ -1,0 +1,161 @@
+// ============================================================
+// Footer
+// ============================================================
+
+@use "../abstracts/mixins" as m;
+
+.section-text,
+.section-kicker,
+.footer__text,
+.sector-item p,
+.portfolio-card p {
+  color: var(--color-text-muted);
+  line-height: 1.7;
+}
+
+.site-footer {
+  padding: 3rem 0 1.25rem;
+  background: #111111;
+  color: #fff;
+}
+
+.footer__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) repeat(3, minmax(10rem, 1fr));
+  gap: 2rem;
+  align-items: start;
+}
+
+.footer__grid > *,
+.contact-main__grid > *,
+.contact-form__field,
+.contact-side,
+.contact-alert,
+.contact-detail {
+  min-width: 0;
+}
+
+.footer__text {
+  max-width: 18rem;
+  margin: 0;
+  line-height: 1.55;
+}
+
+.footer__title {
+  margin: 0 0 0.85rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #dcb44f;
+}
+
+.footer__list {
+  display: grid;
+  gap: 0.7rem;
+}
+
+.footer__list a,
+.footer__list span,
+.footer__text,
+.footer__bottom {
+  color: rgba(255, 255, 255, 0.64);
+  overflow-wrap: anywhere;
+}
+
+.footer__list a:hover,
+.footer__list a:focus-visible {
+  color: #fff;
+}
+
+.footer__subheading {
+  display: inline-block;
+  margin-top: 0.5rem;
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.footer__bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+@include m.respond("tablet-down") {
+  .hero__content,
+    .intro,
+    .portfolio,
+    .sectors,
+    .cta-band,
+    .site-footer {
+      padding-inline: 0;
+    }
+
+  .intro__grid,
+    .section-heading,
+    .portfolio__grid,
+    .sectors__grid,
+    .about-overview__grid,
+    .about-story__grid,
+    .about-capacity__grid,
+    .products-hero__grid,
+    .quality-hero__grid,
+    .contact-hero__grid,
+    .contact-main__grid,
+    .contact-presence__grid,
+    .quality-control__grid,
+    .quality-commitment__grid,
+    .tooling-grid,
+    .oilgas-grid,
+    .products-band__content,
+    .contact-footer__grid,
+    .quality-footer__grid,
+    .products-footer__grid,
+    .about-footer__grid,
+    .cta-band__content,
+    .footer__grid {
+      grid-template-columns: 1fr;
+    }
+
+  .footer__bottom {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+}
+
+@include m.respond("mobile-down") {
+  .contact-form__field span,
+    .contact-detail h3,
+    .footer__title {
+      letter-spacing: 0.1em;
+      line-height: 1.35;
+      overflow-wrap: anywhere;
+    }
+
+  .footer__grid {
+      gap: 1.6rem;
+    }
+
+  .footer__text {
+      max-width: none;
+    }
+
+  .footer__bottom {
+      line-height: 1.5;
+      letter-spacing: 0.08em;
+    }
+
+  .site-footer {
+      padding-top: 3rem;
+    }
+}

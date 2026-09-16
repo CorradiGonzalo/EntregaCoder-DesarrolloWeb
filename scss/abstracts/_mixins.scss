@@ -1,0 +1,71 @@
+// ==========================================================================
+// Mixins — reusable, parameterized style rules
+// ==========================================================================
+
+@use "sass:map";
+@use "variables" as v;
+
+/// Emit a @media block for one of the named breakpoints in $breakpoints.
+/// @param {String} $breakpoint - key of v.$breakpoints ("mobile-down", "tablet-down", "desktop-up")
+@mixin respond($breakpoint) {
+  @if map.has-key(v.$breakpoints, $breakpoint) {
+    @media #{map.get(v.$breakpoints, $breakpoint)} {
+      @content;
+    }
+  } @else {
+    @warn "Unknown breakpoint `#{$breakpoint}`. Available: #{map.keys(v.$breakpoints)}";
+  }
+}
+
+/// Flex container shorthand.
+/// @param {String} $direction - flex-direction (default row)
+/// @param {String} $justify - justify-content (default flex-start)
+/// @param {String} $align - align-items (default stretch)
+/// @param {String} $gap - gap (default 0)
+@mixin flex($direction: row, $justify: flex-start, $align: stretch, $gap: 0) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+  gap: $gap;
+}
+
+/// Solid button color variant.
+/// @param {Color} $bg - background color
+/// @param {Color} $color - text color (default #fff)
+/// @param {Color} $border - border color (default transparent)
+@mixin button-variant($bg, $color: #fff, $border: transparent) {
+  background: $bg;
+  color: $color;
+  border-color: $border;
+}
+
+/// Reusable underline-on-hover effect for text links (nav, footer, etc).
+/// @param {Color} $line-color - underline color (default accent red custom property)
+@mixin link-underline($line-color: var(--color-accent)) {
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -0.4rem;
+    width: 100%;
+    height: 1px;
+    transform: scaleX(0);
+    transform-origin: left;
+    background: $line-color;
+    transition: transform var(--transition);
+  }
+
+  &:hover::after,
+  &:focus-visible::after {
+    transform: scaleX(1);
+  }
+}
+
+/// Absolutely-fill a positioned ancestor (used for background media layers).
+@mixin fill-absolute {
+  position: absolute;
+  inset: 0;
+}
