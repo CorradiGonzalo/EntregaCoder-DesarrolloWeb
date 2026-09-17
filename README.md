@@ -9,7 +9,7 @@ El sitio presenta la historia de la empresa, su catálogo técnico de
 productos y servicios, la certificación de calidad ISO 9001:2015 y un canal
 de contacto para consultas técnicas y cotizaciones.
 
-**Demo en producción: https://entrega-coder-desarrollo-web.vercel.app/** 
+**Demo en producción:** _agregar aquí el link de Vercel / Netlify una vez desplegado_
 
 ## Estructura del proyecto
 
@@ -69,10 +69,22 @@ completos en todas las imágenes.
 Es un sitio estático: alcanza con abrir `index.html` en el navegador, o
 servirlo con cualquier servidor estático, por ejemplo:
 
+```bash
+npx serve .
+```
+
+## Cómo recompilar el SCSS
+
+```bash
+npm install -g sass
+sass scss/main.scss styles/styles.css
+```
+
 ## Despliegue
 
-El sitio está pensado para desplegarse como sitio estático en **Vercel**
+El sitio está pensado para desplegarse como sitio estático en **Vercel** o
+**Netlify** (carpeta raíz como directorio de publicación, sin build step).
 
 ## Autor
 
-Gonzalo Corradi — Antares SRL. 
+Gonzalo Corradi — Antares SRL / Trinity Systems.
